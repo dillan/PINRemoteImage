@@ -99,14 +99,14 @@
 #endif
 }
 
-- (void)pin_updateUIWithImage:(PINImage *)image animatedImage:(FLAnimatedImage *)animatedImage
+- (void)pin_updateUIWithRemoteImageManagerResult:(PINRemoteImageManagerResult *)result
 {
-    if (image) {
+    if (result.image) {
 #ifdef __IPHONE_OS_VERSION_MIN_REQUIRED
-        [self setImage:image forState:UIControlStateNormal];
+        [self setImage:result.image forState:UIControlStateNormal];
         [self setNeedsLayout];
 #else
-        [self setImage:image];
+        [self setImage:result.image];
         [self setNeedsLayout:YES];
 #endif
     }
